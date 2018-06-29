@@ -1,2 +1,3 @@
-# tweet-get-get
-React application to fetch tweets with bad api xD.
+# Tweet Get Get
+
+React application to fetch tweets with bad restful api.
