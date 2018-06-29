@@ -1,0 +1,37 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+        "no-unused-vars": "error",
+        "semi": "error",
+        "no-trailing-spaces": "error",
+        "no-tabs": "error",
+        "no-multiple-empty-lines": "error",
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "camelcase": "error",
+        "no-var": "error",
+        "prefer-const": "error",
+        "no-else-return": "error",
+        "no-empty-function": "error",
+        "no-undef": "off",
+        "import/prefer-default-export": "off",
+        "react/prop-types": "warn",
+        "object-curly-newline": "off",
+        "max-len": "off",
+        "react/no-array-index-key": "off",
+        "react/destructuring-assignment": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/prefer-stateless-function": "off",
+        "react/jsx-filename-extension": "warn",
+        "no-case-declarations": "off",
+        "no-unused-vars": "warn",
+        "indent": "off"
+    }
+}

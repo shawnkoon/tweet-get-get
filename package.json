@@ -2,16 +2,33 @@
   "name": "tweet-get-get",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "shawnkoon",
+    "url": "https://github.com/shawnkoon"
+  },
   "dependencies": {
+    "axios": "0.18.0",
+    "bootstrap": "4.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-redux": "5.0.7",
+    "react-scripts": "1.1.4",
+    "reactstrap": "6.2.0",
+    "redux": "4.0.0"
   },
   "scripts": {
-    "lint": "echo 'Plz Add lint'",
+    "lint": "eslint src/**/*.{jsx,js}",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "8.2.5",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.10.0"
   }
 }
