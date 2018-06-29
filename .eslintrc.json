@@ -32,6 +32,7 @@
         "react/jsx-filename-extension": "warn",
         "no-case-declarations": "off",
         "no-unused-vars": "warn",
-        "indent": "off"
+        "indent": "off",
+        "class-methods-use-this": "off"
     }
 }
