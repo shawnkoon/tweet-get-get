@@ -33,6 +33,7 @@
         "no-case-declarations": "off",
         "no-unused-vars": "warn",
         "indent": "off",
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "no-restricted-syntax":"off"
     }
 }

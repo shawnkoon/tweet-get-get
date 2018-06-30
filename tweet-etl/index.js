@@ -2,6 +2,9 @@
 import axios from 'axios';
 import moment from 'moment';
 
+// App
+import { postTweetPage } from './api';
+
 // Constants
 const BASE_URL = 'https://badapi.iqvia.io/api/v1/Tweets';
 const START_DATE = moment('2016-01-01').utc().startOf('year');
@@ -36,20 +39,25 @@ export const fetchTweets = startDate => (
 const executor = (startDate, previousTweet = undefined) => {
   fetchTweets(startDate)
     .then((tweets) => {
-      TWEET_COUNT += tweets.length;
+      let numberOfDuplicates = 0;
 
       if (previousTweet) {
-        const numberOfDuplicates = tweets.findIndex(tweet => tweet.id === previousTweet.id) + 1;
-        TWEET_COUNT -= numberOfDuplicates;
+        numberOfDuplicates = tweets.findIndex(tweet => tweet.id === previousTweet.id) + 1;
       }
 
-      if (tweets.length !== MAX_PAGE_SIZE) {
-        console.log(`Tweets fetching process finished with ${TWEET_COUNT} tweets.`);
-        return;
-      }
+      TWEET_COUNT = TWEET_COUNT + tweets.length - numberOfDuplicates;
 
-      console.log(`Currently ${TWEET_COUNT} tweets fetched.`);
-      executor(moment(tweets[tweets.length - 1].stamp).utc(), tweets[tweets.length - 1]);
+      postTweetPage(tweets.slice(numberOfDuplicates))
+        .then(() => {
+          if (tweets.length !== MAX_PAGE_SIZE) {
+            console.log(`Tweets fetching process finished with ${TWEET_COUNT} tweets.`);
+            return;
+          }
+
+          console.log(`Currently ${TWEET_COUNT} tweets fetched.`);
+          executor(moment(tweets[tweets.length - 1].stamp).utc(), tweets[tweets.length - 1]);
+        })
+        .catch(error => console.error(error));
     });
 };
 

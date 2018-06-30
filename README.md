@@ -5,3 +5,29 @@ Master 💻 | GreenKeeper 🌱
 [![Build Status](https://travis-ci.com/shawnkoon/tweet-get-get.svg?branch=master)](https://travis-ci.com/shawnkoon/tweet-get-get) |
 
 React application to fetch tweets with bad restful api.
+
+## Execution Steps (Command Line)
+
+1. Install Node & NPM. v8.x v5.x Recommended.
+
+2. Install node dependencies.
+
+```bash
+λ npm install
+```
+
+3. Open two terminals one for the DB server, one for the app.
+
+4. On one of the terminal session, run `JSON-SERVER` and leave it running.
+
+```bash
+λ npm run start:db
+```
+
+5. On the other terminal session, run `tweet-etl` project.
+
+```bash
+λ npm run start:etl
+```
+
+6. Once the etl project finishes, check `database.json` file to see the tweets.
