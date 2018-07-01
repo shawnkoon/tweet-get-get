@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Constants
-const DB_URL = 'http://localhost:3000';
+const DB_URL = 'http://localhost:3030';
 
 export const postTweetPage = (tweetArray, pageId) => (
   new Promise((resolve, reject) => (

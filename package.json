@@ -22,7 +22,7 @@
     "lint": "eslint src/**/*.{jsx,js}",
     "start": "react-scripts start",
     "start:etl": "npm run build:etl && node ./build_etl/tweet-etl/index.js",
-    "start:db": "rimraf ./database.json && echo '{ \"tweetPages\": [] }' > database.json && json-server --watch ./database.json",
+    "start:db": "rimraf ./database.json && echo '{ \"tweetPages\": [] }' > database.json && json-server --watch ./database.json --port 3030",
     "build": "react-scripts build",
     "build:etl": "rimraf build_etl && babel ./tweet-etl/* --out-dir build_etl",
     "test": "react-scripts test --env=jsdom",

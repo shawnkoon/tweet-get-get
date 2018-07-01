@@ -1,7 +1,7 @@
 // Lib
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/tweetPages';
+const baseURL = 'http://localhost:3030/tweetPages';
 
 export const fetchTweets = pageNumber => (
   new Promise((resolve, reject) => {

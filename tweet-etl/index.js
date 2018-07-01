@@ -70,8 +70,9 @@ export class TweetFetcher {
           console.log('ERROR [500]: Duplicate insertion detected, DB needs to be re-started.');
           return;
         }
+
         console.log('DB is busy, cooling off for 1 second.');
-        setTimeout(() => this.apiHandler(tweets.slice(newStartIndex), pageId, newStartIndex), 1000);
+        setTimeout(() => this.apiHandler(tweets, pageId, newStartIndex), 1000);
       });
   }
 }

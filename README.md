@@ -16,6 +16,8 @@ React application to fetch tweets with bad restful api.
 λ npm install
 ```
 
+### ETL from BAD API -> Local DB Server
+
 3. Open two terminals one for the DB server, one for the app.
 
 4. On one of the terminal session, run `JSON-SERVER` and leave it running.
@@ -29,5 +31,21 @@ React application to fetch tweets with bad restful api.
 ```bash
 λ npm run start:etl
 ```
+![re-try-image](doc_imgs/re_try_logic.png)
+(It will cool off if DB is busy.)
 
 6. Once the etl project finishes, check `database.json` file to see the tweets.
+
+### Viewing in UI
+
+7. Making sure the DB server if up and running. (ref #4)
+
+8. On the new terminal session, run `react Tweet Get Get` project
+
+```bash
+λ npm run start
+```
+
+9. Either web opens up or just access `http://localhost:3000/`.
+
+![web-view](doc_imgs/web_image.png)
