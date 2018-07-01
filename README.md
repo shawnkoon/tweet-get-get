@@ -49,3 +49,22 @@ React application to fetch tweets with bad restful api.
 9. Either web opens up or just access `http://localhost:3000/`.
 
 ![web-view](doc_imgs/web_image.png)
+
+
+## Execution step (Docker)
+
+1. Run `makefile` command.
+
+```bash
+λ make docker_run
+```
+
+2. When etl container executes it's process check the `database.json` file grow.
+
+3. Check the webapp at `http://localhost:3000/`.
+
+4. Clean up docker artifects.
+
+```bash
+λ make docker_clean
+```
