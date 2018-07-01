@@ -20,5 +20,3 @@ WORKDIR ./tweet-get-get
 
 # Install Node dependencies.
 RUN npm install
-
-CMD ["npm", "run", "start:docker"]

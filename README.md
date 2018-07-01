@@ -59,11 +59,9 @@ React application to fetch tweets with bad restful api.
 λ make docker_run
 ```
 
-2. When etl container executes it's process check the `database.json` file grow.
+2. Check the webapp at `http://localhost:3000/`.
 
-3. Check the webapp at `http://localhost:3000/`.
-
-4. Clean up docker artifects.
+3. Clean up docker artifects.
 
 ```bash
 λ make docker_clean
