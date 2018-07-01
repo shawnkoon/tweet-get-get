@@ -1,24 +1,12 @@
 // Lib
 import axios from 'axios';
 
-const baseURL = 'https://badapi.iqvia.io/api/v1/Tweets';
+const baseURL = 'http://localhost:3000/tweetPages';
 
-export const fetchTweets = () => (
+export const fetchTweets = pageNumber => (
   new Promise((resolve, reject) => {
-    axios.get(`${baseURL}?startDate=2017-03-22T04:07:56.271Z&endDate=2017-03-28T04:07:56.271Z`, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((result) => {
-        console.log('API Succeeded', result);
-        console.log('API Succeeded body', result.body);
-        resolve(result.body);
-      })
-      .catch((error) => {
-        console.log('An error occured', error);
-        reject(error);
-      });
+    axios.get(`${baseURL}/${pageNumber}`, { headers: { 'Content-Type': 'application/json' } })
+      .then(result => resolve(result.data.tweets))
+      .catch(error => reject(error.response));
   })
 );

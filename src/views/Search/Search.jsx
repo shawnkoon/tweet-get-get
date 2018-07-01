@@ -11,30 +11,47 @@ class SearchContainer extends PureComponent {
   constructor(props) {
     super(props);
 
-    console.log('tweets', props.tweets);
+    this.state = { error: undefined };
+
+    this.handleGetAll(props.pageNumber);
   }
 
-  handleGetAll = () => {
-    console.log('tweets', this.props.tweets);
-    console.log('Call GetALL');
-    api.fetchTweets()
-      .then(tweets => this.props.getAllTweets(tweets));
+  handleGetAll = (pageNumber) => {
+    api.fetchTweets(pageNumber)
+      .then((tweets) => {
+        api.fetchTweets(pageNumber + 1)
+          .then(() => this.props.setHasNextPage(true))
+          .catch(() => this.props.setHasNextPage(false));
+
+        this.setState({ error: undefined });
+        this.props.getAllTweets(pageNumber, tweets);
+      })
+      .catch(error => this.setState({ error }));
   }
 
   render() {
-    return <SearchComponent handleGetAll={this.handleGetAll} />;
+    return (
+      <SearchComponent
+        handleGetAll={this.handleGetAll}
+        hasNextPage={this.props.hasNextPage}
+        currentPage={this.props.pageNumber}
+        error={this.state.error}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => (
   {
-    tweets: state.tweetState.tweets,
+    hasNextPage: state.tweetState.hasNextPage,
+    pageNumber: state.tweetState.pageNumber || 1,
   }
 );
 
 const mapDispatchToProps = dispatch => (
   {
-    getAllTweets: tweets => dispatch(actions.getAllTweets(tweets)),
+    getAllTweets: (pageNumber, tweets) => dispatch(actions.getAllTweets(pageNumber, tweets)),
+    setHasNextPage: hasNext => dispatch(actions.hasNextPage(hasNext)),
   }
 );
 

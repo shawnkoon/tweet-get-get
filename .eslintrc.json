@@ -2,7 +2,6 @@
     "extends": "airbnb",
     "parser": "babel-eslint",
     "rules": {
-        "no-unused-vars": "error",
         "semi": "error",
         "no-trailing-spaces": "error",
         "no-tabs": "error",
@@ -34,6 +33,7 @@
         "no-unused-vars": "warn",
         "indent": "off",
         "class-methods-use-this": "off",
-        "no-restricted-syntax":"off"
+        "no-restricted-syntax":"off",
+        "no-plusplus": "off"
     }
 }
